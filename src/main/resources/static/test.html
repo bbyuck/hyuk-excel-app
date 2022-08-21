@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Excel API 테스트 페이지</title>
-    <script>
-        const fileInput = document.getElementById("fileUpload");
-
-        fileInput.onchange = () => {
-            const.selectedFile = fileInput.files[0];
-            console.log(selectedFile);
-        }
-    </script>
 </head>
 <body>
-    <ul>
-        <li>Excel 테스트
-            <ul>
-                <li>파일로드 : <input type="file" id="fileUpload"></li>
-            </ul>
-        <li>
-    </ul>
+    <form action="/upload" method="post" id="uploadTestForm">
+        <ul>
+            <li>Excel 테스트
+                <ul>
+                    <li>파일로드 : <input type="file" id="fileUpload"></li>
+                </ul>
+            </li>
+        </ul>
+    </form>
+    <script>
+        const fileInput = document.getElementById("fileUpload");
+        fileInput.onchange = () => {
+            const selectedFile = fileInput.files[0];
+            console.log(selectedFile);
+            document.getElementById("uploadTestForm").submit();
+        }
+    </script>
 </body>
 </html>
